@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import { MDBTable, MDBTableBody, MDBTableHead, MDBBtn } from 'mdbreact';
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 
 export class Table extends Component {
      state = {
@@ -12,7 +13,17 @@ export class Table extends Component {
           const url = 'http://localhost:3005/getData';
           axios.get(url)
                .then(response => {
-                    this.setState({ data: response.data })
+                    const filteredData = [];
+                    const tableData = response.data.recordset;
+                    tableData.forEach(data => {
+                         let obj = {};
+                         obj['severity'] = data.severity;
+                         let secondData = Object.values(data);
+                         obj['count'] = secondData[1][0];
+                         obj['date'] = secondData[1][1];
+                         filteredData.push(obj)
+                    });
+                    this.setState({ data: filteredData });
                }).catch(err => {
                     console.log(err)
                });
@@ -21,6 +32,7 @@ export class Table extends Component {
      handleShow = () => {
           this.setState({ isShow: true })
      }
+
      render() {
           return (
                <div style={{ margin: 50 }}>
@@ -29,32 +41,37 @@ export class Table extends Component {
                     </div>
 
                     {this.state.isShow &&
-                         <MDBTable hover>
-                              <MDBTableHead color="primary-color" textWhite>
-                                   <tr>
-                                        <th>#</th>
-                                        <th>Event name</th>
-                                        <th>Categories</th>
-                                        <th>Severity</th>
-                                        <th>From</th>
-                                        <th>To</th>
-                                   </tr>
-                              </MDBTableHead>
-                              <MDBTableBody>
-                                   {this.state.data.map((data, index) => {
-                                        return (
-                                             <tr key={data.id}>
-                                                  <td>{index + 1}</td>
-                                                  <td>{data.event_name}</td>
-                                                  <td>{data.categories}</td>
-                                                  <td>{data.severity}</td>
-                                                  <td>{data.from_date}</td>
-                                                  <td>{data.to_date}</td>
-                                             </tr>
-                                        )
-                                   })}
-                              </MDBTableBody>
-                         </MDBTable>
+                         <>
+                              <ReactHTMLTableToExcel
+                                   id="test-table-xls-button"
+                                   className="download-table-xls-button"
+                                   table="table-to-xls"
+                                   filename="tablexls"
+                                   sheet="tablexls"
+                                   buttonText="Download as XLS" />
+                              <MDBTable hover id="table-to-xls">
+                                   <MDBTableHead color="primary-color" textWhite>
+                                        <tr>
+                                             <th>#</th>
+                                             <th>Severity</th>
+                                             <th>Count</th>
+                                             <th>Date</th>
+                                        </tr>
+                                   </MDBTableHead>
+                                   <MDBTableBody>
+                                        {this.state.data.map((data, index) => {
+                                             return (
+                                                  <tr key={index + 1}>
+                                                       <td>{index + 1}</td>
+                                                       <td>{data.severity}</td>
+                                                       <td>data.count</td>
+                                                       <td>{data.date}</td>
+                                                  </tr>
+                                             )
+                                        })}
+                                   </MDBTableBody>
+                              </MDBTable>
+                         </>
                     }
                </div>
           )
