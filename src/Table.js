@@ -53,13 +53,13 @@ export class Table extends Component {
                                    <MDBTableHead color="primary-color" textWhite>
                                         <tr>
                                              <th>#</th>
-                                             <th>Severity</th>
-                                             <th>Count</th>
+                                             <th>Title</th>
+                                             <th>Category</th>
                                              <th>Date</th>
                                         </tr>
                                    </MDBTableHead>
                                    <MDBTableBody>
-                                        {this.state.data.map((data, index) => {
+                                        {/* {this.state.data.map((data, index) => {
                                              return (
                                                   <tr key={index + 1}>
                                                        <td>{index + 1}</td>
@@ -68,7 +68,51 @@ export class Table extends Component {
                                                        <td>{data.date}</td>
                                                   </tr>
                                              )
-                                        })}
+                                        })} */}
+
+                                        <tr>
+                                             <td rowspan="4">1</td>
+                                             <td>Jan</td>
+                                             <td>$50</td>
+                                             <td>$50</td>
+                                        </tr>
+                                        <tr>
+                                             <td>Feb</td>
+                                             <td>$80</td>
+                                             <td>$50</td>
+                                        </tr>
+                                        <tr>
+                                             <td>Mar</td>
+                                             <td>$80</td>
+                                             <td>$50</td>
+                                        </tr>
+                                        <tr>
+                                             <td>Apr</td>
+                                             <td>$80</td>
+                                             <td>$50</td>
+                                        </tr>
+                                        <tr>
+                                             <td rowspan="4">2</td>
+                                             <td>Jan</td>
+                                             <td>$50</td>
+                                             <td>$50</td>
+                                        </tr>
+                                        <tr>
+                                             <td>Feb</td>
+                                             <td>$80</td>
+                                             <td>$50</td>
+                                        </tr>
+                                        <tr>
+                                             <td>Mar</td>
+                                             <td>$80</td>
+                                             <td>$50</td>
+                                        </tr>
+                                        <tr>
+                                             <td>Apr</td>
+                                             <td>$80</td>
+                                             <td>$50</td>
+                                        </tr>
+
                                    </MDBTableBody>
                               </MDBTable>
                          </>
