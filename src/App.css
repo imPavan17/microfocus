@@ -20,3 +20,8 @@
 .App-link {
   color: #09d3ac;
 }
+
+.download-table-xls-button {
+  position: relative !important;
+  left: 44% !important;
+}

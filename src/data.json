@@ -1,0 +1,50 @@
+[
+     {
+          "TOPO_COR_ID": "1",
+          "TIME_CREATED": "2019-12-03",
+          "TITLE": "MF-Demo",
+          "RELATED_CI_NAME": "basjdasd",
+          "SEVERITY": "critical",
+          "CATEGORY": "OS",
+          "RELATED_CI_TYPE": "unix",
+          "NODE_CI_NAME": "asjdakjsd",
+          "NODE_CI_TYPE": "nt",
+          "APPLICATION": "OS"
+     },
+     {
+          "TOPO_COR_ID": "1",
+          "TIME_CREATED": "2019-12-03",
+          "TITLE": "MF-Demo",
+          "RELATED_CI_NAME": "basjdasd",
+          "SEVERITY": "critical",
+          "CATEGORY": "OS",
+          "RELATED_CI_TYPE": "unix",
+          "NODE_CI_NAME": "asjdakjsd",
+          "NODE_CI_TYPE": "nt",
+          "APPLICATION": "OS"
+     },
+     {
+          "TOPO_COR_ID": "1",
+          "TIME_CREATED": "2019-12-03",
+          "TITLE": "MF-Demo",
+          "RELATED_CI_NAME": "basjdasd",
+          "SEVERITY": "critical",
+          "CATEGORY": "OS",
+          "RELATED_CI_TYPE": "unix",
+          "NODE_CI_NAME": "asjdakjsd",
+          "NODE_CI_TYPE": "nt",
+          "APPLICATION": "OS"
+     },
+     {
+          "TOPO_COR_ID": "2",
+          "TIME_CREATED": "2019-12-03",
+          "TITLE": "MF-Demo",
+          "RELATED_CI_NAME": "basjdasd",
+          "SEVERITY": "critical",
+          "CATEGORY": "OS",
+          "RELATED_CI_TYPE": "unix",
+          "NODE_CI_NAME": "asjdakjsd",
+          "NODE_CI_TYPE": "nt",
+          "APPLICATION": "OS"
+     }
+]
